@@ -1,0 +1,23 @@
+
+.container-1 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.container-1 img {
+    width: 100px;
+    height: 100px;
+}
+
+.container-2 {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+}
