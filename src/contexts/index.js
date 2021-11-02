@@ -1,13 +1,13 @@
 import {useState, createContext} from 'react';
 
 
+
 export const UserContext = createContext({});
 
 
 function UserProvider({children}){
 
 const [dados, setDados] = useState(['']);
-
 
 
 

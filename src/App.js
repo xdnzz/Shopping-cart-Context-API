@@ -7,7 +7,7 @@ export default function App(){
   return (
 
     <UserProvider> 
-      <UserProvider/>
+      <Feed/>
     </UserProvider>
   )
 }

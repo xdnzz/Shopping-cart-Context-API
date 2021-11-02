@@ -1,21 +1,38 @@
-import {useContext} from 'react';
 
-import react from 'react'
-
-
-import {UserContext} from '../contexts/index';
+import {useState, useEffect} from 'react'
 
 
 export default function Carrinho(){
-
-   // const json = JSON.parse(localStorage)
-    const json = localStorage;
-    console.log(json)
+    const[dados, setDados] = useState([]);
 
 
+
+
+    useEffect(()=>{
+
+        const myProducts = localStorage.getItem('produtos');
+        setDados(JSON.parse(myProducts) || []);
+        
+    },[]);
+
+
+
+   
     return(
-    <div className="container-pai">
+        <div>
        
-    </div>
+        <h1>Produtos no carrinho</h1>
+
+            <ul>
+                {dados.map((item)=>{
+                    return(
+                        <li key={item.nome}>
+                            <p>{item.nome}</p>
+                        </li>
+                    )
+                })}
+            </ul>
+
+        </div>
     )
 }
