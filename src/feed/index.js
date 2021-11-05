@@ -45,11 +45,11 @@ export default function Feed(){
 
     return(
         <div>
-        {reset.map((categoria, index)=>{
+     <div className="botoes">   {reset.map((categoria, index)=>{
             return <button onClick={()=>filter(categoria)}>{categoria} </button>
                 
             
-        })}
+        })}</div>
             <input value={search} onChange={(e)=> {getSearch(e.target.value)} } type="text"
                  className="busca"
                  placeholder="Buscar postagem por nome de usuário"
