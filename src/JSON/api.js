@@ -69,7 +69,7 @@
     img: 'https://testosterona.me/wp-content/uploads/2017/09/equipoise.jpg',
     nome: 'Equipoise (boldenona)',
     preço: 100,
-    disponibilidade: 'Em estoque'
+    disponibilidade: 'eita'
     }
 
 ])
