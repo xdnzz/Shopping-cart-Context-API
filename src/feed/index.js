@@ -19,11 +19,11 @@ export default function Feed(){
     function carrinho(e){
         
         
-        const myList = localStorage.getItem('produtos');
+        const myList = localStorage.getItem('produtos'); //produtos estarão em formato de string
 
         let pinnedProducts = JSON.parse(myList) || [];
     
-        const hasProduct = pinnedProducts.some((product)=>product.id === carrinhoDado.id);
+        const hasProduct = pinnedProducts.some((product)=>product.id == carrinhoDado.id);
 
         if(hasProduct){
             alert('Voce já possui esse item no seu carrinho');
@@ -34,14 +34,23 @@ export default function Feed(){
 
         localStorage.setItem('produtos', JSON.stringify(pinnedProducts));
 
-        alert('Produto adicionado ao carrinho')
+        alert('Produto adicionado ao carrinho');
 
-       
     }
 
+    function filter(par){
+        const filtrado = carrinhoDado.filter(item => item.disponibilidade === par);
+        setCarrinhoDado(filtrado)
+    }
   
+    const clear = () => {
+        setCarrinhoDado(produtos)
+  }
+
     return(
         <div>
+        <button onClick={()=>filter('Em Falta')}>Disponibilidade</button>
+        <button onClick={clear}>Limpar filtros</button>
             <input value={search} onChange={(e)=> {getSearch(e.target.value)} } type="text"
                  className="busca"
                  placeholder="Buscar postagem por nome de usuário"

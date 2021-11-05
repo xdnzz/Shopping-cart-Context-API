@@ -4,7 +4,7 @@
     img: 'https://www.kingpharmaoficial.com.br/wp-content/uploads/2019/05/Primobolan-King-Pharma-%E2%80%93-100MG-10ML01.jpeg',
     nome: 'Primobolan',
     preço: 100,
-    disponibilidade: 'Em estoque'
+    disponibilidade: 'Em Falta'
     },
     {
     id: 2,
