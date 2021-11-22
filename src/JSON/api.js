@@ -3,35 +3,35 @@
     id: 1,
     img: 'https://www.kingpharmaoficial.com.br/wp-content/uploads/2019/05/Primobolan-King-Pharma-%E2%80%93-100MG-10ML01.jpeg',
     nome: 'Primobolan',
-    preço: 100,
+    preço: 90,
     disponibilidade: 'Em Falta'
     },
     {
     id: 2,
     img: 'https://labscompany.com/wp-content/uploads/2019/08/DECA-300MG.-KING-PHARMA.png',
     nome: 'Deca Durabolin',
-    preço: 100,
+    preço: 80,
     disponibilidade: 'Em estoque'
     },
     {
     id: 3,
     img: 'https://www.dicasdetreino.com.br/wp-content/uploads/2014/12/STANOZOLOL-STANO-WINSTROL.jpg',
     nome: 'Winstrol (stanozolol)',
-    preço: 100,
+    preço: 70,
     disponibilidade: 'Em estoque'
     },
     {
     id: 4,
     img: 'https://www.smartsuplementos.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/u/durateston_plus-_smart_suplementos.jpg',
     nome: 'Durateston (testosterona)',
-    preço: 100,
+    preço: 400,
     disponibilidade: 'Em estoque'
     },
     {
     id: 5,
     img: 'https://images.tcdn.com.br/img/img_prod/501262/gh_anabol_120_capsulas_bio_nutrition_174_1_20180411152122.jpg',
     nome: 'GH (somatrofina)',
-    preço: 100,
+    preço: 1200,
     disponibilidade: 'Em estoque'
     },
     {
@@ -45,7 +45,7 @@
     id: 7,
     img: 'https://cdn.awsli.com.br/600x450/1051/1051925/produto/59847277/1a7e198974.jpg',
     nome: 'Clembuterol',
-    preço: 100,
+    preço: 620,
     disponibilidade: 'Em estoque'
     },
     {

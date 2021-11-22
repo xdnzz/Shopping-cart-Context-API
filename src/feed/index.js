@@ -7,7 +7,7 @@ import './estilo.css';
 
 
 const  AllCat = ['All', ...new Set(produtos.map(item => item.disponibilidade))];
-
+const  AllCat2 = ['All', ...new Set(produtos.map(item => item.preço))];
 
 export default function Feed(){
 
@@ -15,6 +15,8 @@ export default function Feed(){
     const [carrinhoDado, setCarrinhoDado] = useState(produtos);
     const [reset, setReset] = useState(AllCat)
     const [search, getSearch] = useState('')
+    const [price, setPrice] = useState(AllCat2)
+
     function carrinho(e){
         
         
@@ -37,17 +39,26 @@ export default function Feed(){
             setCarrinhoDado(produtos);
             return;
         } 
-        const filtrado = produtos.filter(item => item.disponibilidade === par);
+        const filtrado = produtos.filter(item => item.preço === par);
         setCarrinhoDado(filtrado);
 
     }
-  
+  // {reset.map((categoria, index)=>{ return <button onClick={()=>filter(categoria)}>{categoria}
+   
 
     return(
         <div>
-     <div className="botoes">   {reset.map((categoria, index)=>{
-            return <button onClick={()=>filter(categoria)}>{categoria} </button>
-                
+     <div className="botoes">   {price.map((preço, index)=>{
+            return( 
+            <div>
+            <input 
+            onClick={()=>filter(preço)}
+            type="checkbox" id="scales" name="scales"
+            />
+            
+            <label for="scales">{preço}</label>
+            </div>
+            )
             
         })}</div>
             <input value={search} onChange={(e)=> {getSearch(e.target.value)} } type="text"
