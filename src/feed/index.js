@@ -1,5 +1,5 @@
 
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import produtos from '../JSON/api';
 import './estilo.css';
 
@@ -16,7 +16,8 @@ export default function Feed(){
     const [reset, setReset] = useState(AllCat)
     const [search, getSearch] = useState('')
     const [price, setPrice] = useState(AllCat2)
-
+    const [zerar, setZerar] = useState([])
+  
     function carrinho(e){
         
         
@@ -36,26 +37,41 @@ export default function Feed(){
 
     function filter(par){
         if(par === 'All'){
-            setCarrinhoDado(produtos);
+            setCarrinhoDado([]);
             return;
         } 
-        const filtrado = produtos.filter(item => item.preço === par);
-        setCarrinhoDado(filtrado);
+        else {
+    setCarrinhoDado(zerar);
+    const filtrado = produtos.filter(item => item.preço === par);
+    const filtering = [...carrinhoDado, ...filtrado];
+
+    setCarrinhoDado(filtering);
+    console.log(carrinhoDado);
+    }
+    
 
     }
   // {reset.map((categoria, index)=>{ return <button onClick={()=>filter(categoria)}>{categoria}
-   
+   function test(){
+let rains = ['amazon','borneco','cerrado','congo'];
+rains.splice(0,2);
+console.log(rains)
+   }
+
+   test();
+
 
     return(
         <div>
-     <div className="botoes">   {price.map((preço, index)=>{
+     <div className="botoes">   
+            {price.map((preço)=>{
             return( 
             <div>
             <input 
             onClick={()=>filter(preço)}
             type="checkbox" id="scales" name="scales"
             />
-            
+
             <label for="scales">{preço}</label>
             </div>
             )
