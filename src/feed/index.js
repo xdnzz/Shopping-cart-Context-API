@@ -16,7 +16,6 @@ export default function Feed(){
     const [reset, setReset] = useState(AllCat)
     const [search, getSearch] = useState('')
     const [price, setPrice] = useState(AllCat2)
-    const [zerar, setZerar] = useState([])
   
     function carrinho(e){
         
@@ -40,25 +39,18 @@ export default function Feed(){
             setCarrinhoDado([]);
             return;
         } 
-        else {
-    setCarrinhoDado(zerar);
+
     const filtrado = produtos.filter(item => item.preço === par);
     const filtering = [...carrinhoDado, ...filtrado];
 
     setCarrinhoDado(filtering);
-    console.log(carrinhoDado);
-    }
+  
+    
     
 
     }
   // {reset.map((categoria, index)=>{ return <button onClick={()=>filter(categoria)}>{categoria}
-   function test(){
-let rains = ['amazon','borneco','cerrado','congo'];
-rains.splice(0,2);
-console.log(rains)
-   }
 
-   test();
 
 
     return(
