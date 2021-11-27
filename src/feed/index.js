@@ -44,24 +44,15 @@ export default function Feed(){
 
     const filtrado = produtos.filter(item => item.preço === par); //filtra o produto pelo parametro passado
     const filtering = [...carrinhoDado, ...filtrado]; 
-    const test = [...new Set(filtering)]
-
-  
+    const test = [...new Set(filtering)];
     const conv = JSON.stringify(carrinhoDado);
-    
-  const converter = conv.includes(par);
-
-
+    const converter = conv.includes(par);
     if(converter){
-        
         const filtrado1 = carrinhoDado.filter(item => item.preço !== par);
-  
         const filtering = [ ...filtrado1]; 
         const test1 = [...new Set(filtering)]
         setCarrinhoDado(test1)
-        
         return
-    
     }
 
     setCarrinhoDado(test)
