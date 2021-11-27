@@ -51,14 +51,15 @@ export default function Feed(){
     
   const converter = conv.includes(par);
 
-    alert(converter)
+
     if(converter){
         
         const filtrado1 = carrinhoDado.filter(item => item.preço !== par);
-        const filtering = [...carrinhoDado, ...filtrado1]; 
+  
+        const filtering = [ ...filtrado1]; 
         const test1 = [...new Set(filtering)]
         setCarrinhoDado(test1)
-        alert(JSON.stringify(carrinhoDado))
+        
         return
     
     }
