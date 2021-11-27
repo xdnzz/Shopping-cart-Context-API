@@ -16,6 +16,7 @@ export default function Feed(){
     const [reset, setReset] = useState(AllCat)
     const [search, getSearch] = useState('')
     const [price, setPrice] = useState(AllCat2)
+    
   
     function carrinho(e){
         
@@ -39,13 +40,14 @@ export default function Feed(){
             setCarrinhoDado([]);
             return;
         } 
+        else {
 
     const filtrado = produtos.filter(item => item.preço === par);
     const filtering = [...carrinhoDado, ...filtrado];
-
-    setCarrinhoDado(filtering);
-  
+    const test = [...new Set(filtering)]
+    setCarrinhoDado(test);
     
+    }
     
 
     }
