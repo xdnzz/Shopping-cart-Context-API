@@ -58,6 +58,7 @@ export default function Feed(){
         const filtering = [...carrinhoDado, ...filtrado1]; 
         const test1 = [...new Set(filtering)]
         setCarrinhoDado(test1)
+        alert(JSON.stringify(carrinhoDado))
         return
     
     }
