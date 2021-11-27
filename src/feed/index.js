@@ -42,10 +42,32 @@ export default function Feed(){
         } 
         else {
 
-    const filtrado = produtos.filter(item => item.preço === par);
-    const filtering = [...carrinhoDado, ...filtrado];
+    const filtrado = produtos.filter(item => item.preço === par); //filtra o produto pelo parametro passado
+    const filtering = [...carrinhoDado, ...filtrado]; 
     const test = [...new Set(filtering)]
-    setCarrinhoDado(test);
+
+  
+    const conv = JSON.stringify(carrinhoDado);
+    
+  const converter = conv.includes(par);
+
+    alert(converter)
+    if(converter){
+        
+        const filtrado1 = carrinhoDado.filter(item => item.preço !== par);
+        const filtering = [...carrinhoDado, ...filtrado1]; 
+        const test1 = [...new Set(filtering)]
+        setCarrinhoDado(test1)
+        return
+    
+    }
+
+    setCarrinhoDado(test)
+
+ 
+     
+
+    //setCarrinhoDado(test);
     
     }
     
