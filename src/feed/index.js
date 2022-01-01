@@ -94,7 +94,7 @@ export default function Feed(){
             <div className="container-1">
                 
                 {carrinhoDado.filter((busca)=>{
-                    if(search == ""){
+                    if(search === ""){
                         return busca
                     } else if(
                         busca.nome.toLowerCase().includes(search.toLowerCase())) {
