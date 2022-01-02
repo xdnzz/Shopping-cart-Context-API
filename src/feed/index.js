@@ -71,7 +71,7 @@ export default function Feed(){
 
 
     return(
-        <div>
+        <div className='container'>
      <div className="botoes">   
             {price.map((preço)=>{
             return( 

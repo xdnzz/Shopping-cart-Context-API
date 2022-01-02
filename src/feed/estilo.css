@@ -1,3 +1,6 @@
+.container {
+    display: flex;
+}
 
 .container-1 {
     display: flex;
