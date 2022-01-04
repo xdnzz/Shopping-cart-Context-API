@@ -85,11 +85,13 @@ export default function Feed(){
             </div>
             )
             
-        })}</div>
-            <input value={search} onChange={(e)=> {getSearch(e.target.value)} } type="text"
+        })}
+          <input value={search} onChange={(e)=> {getSearch(e.target.value)} } type="text"
                  className="busca"
                  placeholder="Buscar postagem por nome de usuário"
                  />
+        </div>
+          
        
             <div className="container-1">
                 
