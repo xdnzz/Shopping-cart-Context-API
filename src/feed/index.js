@@ -2,22 +2,26 @@
 import {useEffect, useState} from 'react';
 import produtos from '../JSON/api';
 import './estilo.css';
+import {
+MainContent,
+Navigation,
+Content,
+CampoTexto
+} from '../feed/style';
 
 
 
-
-const  AllCat = ['All', ...new Set(produtos.map(item => item.disponibilidade))];
-const  AllCat2 = ['All', ...new Set(produtos.map(item => item.preço))];
+const  AllCat = ['Limpar filtros', ...new Set(produtos.map(item => item.disponibilidade))];
+const  AllCat2 = ['Limpar filtros', ...new Set(produtos.map(item => item.preço))];
 
 export default function Feed(){
-
-
     const [carrinhoDado, setCarrinhoDado] = useState(produtos);
+    const [carrinhoDadoNew, setCarrinhoDadoNew] = useState(produtos);
     const [reset, setReset] = useState(AllCat)
     const [search, getSearch] = useState('')
     const [price, setPrice] = useState(AllCat2)
-    
-  
+    const title = document.title = 'Lojinha '
+
     function carrinho(e){
         
         
@@ -36,8 +40,8 @@ export default function Feed(){
     }
 
     function filter(par){
-        if(par === 'All'){
-            setCarrinhoDado([]);
+        if(par === 'Limpar filtros'){
+            setCarrinhoDado(carrinhoDadoNew);
             return;
         } 
         else {
@@ -71,7 +75,15 @@ export default function Feed(){
 
 
     return(
-        <div className='container'>
+    <MainContent>
+        <Navigation>
+          <CampoTexto value={search} onChange={(e)=> {getSearch(e.target.value)} } type="text"
+                 className="busca"
+                 placeholder="Buscar postagem por nome de usuário"
+                 />
+          </Navigation>
+        <Content>
+          
      <div className="botoes">   
             {price.map((preço)=>{
             return( 
@@ -86,10 +98,7 @@ export default function Feed(){
             )
             
         })}
-          <input value={search} onChange={(e)=> {getSearch(e.target.value)} } type="text"
-                 className="busca"
-                 placeholder="Buscar postagem por nome de usuário"
-                 />
+       
         </div>
           
        
@@ -115,7 +124,8 @@ export default function Feed(){
                     )
                 })}
             </div>
-            </div>
+            </Content>
+            </MainContent>
     )
 
 }
