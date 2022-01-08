@@ -20,7 +20,7 @@ export default function Feed(){
     const [reset, setReset] = useState(AllCat)
     const [search, getSearch] = useState('')
     const [price, setPrice] = useState(AllCat2)
-    const title = document.title = 'Lojinha '
+    const title = document.title = 'loja de conveniencia'
 
     function carrinho(e){
         
