@@ -6,7 +6,10 @@ import {
 MainContent,
 Navigation,
 Content,
-CampoTexto
+CampoTexto,
+Card,
+Filters,
+CardsContent
 } from '../feed/style';
 
 
@@ -84,7 +87,7 @@ export default function Feed(){
           </Navigation>
         <Content>
           
-     <div className="botoes">   
+     <Filters>   
             {price.map((preço)=>{
             return( 
             <div>
@@ -99,10 +102,10 @@ export default function Feed(){
             
         })}
        
-        </div>
+        </Filters>
           
        
-            <div className="container-1">
+            <CardsContent>
                 
                 {carrinhoDado.filter((busca)=>{
                     if(search === ""){
@@ -113,17 +116,17 @@ export default function Feed(){
                         }
                 }).map((e)=>{
                     return(
-                        <div key={e.id} className="container-2">
+                        <Card key={e.id}>
                             <img src={e.img}/>
-                            <p>{e.nome}</p>
-                            <p>{e.preço}</p>
-                            <p>{e.disponibilidade}</p>
+                            <span>{e.nome}</span>
+                            <span>R$ {e.preço}</span>
+                            <span>{e.disponibilidade}</span>
                             <br/>
                             <button onClick={ ()=>carrinho(e) }>Adicionar ao carrinho</button>
-                        </div>
+                        </Card>
                     )
                 })}
-            </div>
+            </CardsContent>
             </Content>
             </MainContent>
     )
