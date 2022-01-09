@@ -19,10 +19,10 @@ const  AllCat2 = ['Limpar filtros', ...new Set(produtos.map(item => item.preço)
 
 export default function Feed(){
     const [carrinhoDado, setCarrinhoDado] = useState(produtos);
-    const [carrinhoDadoNew, setCarrinhoDadoNew] = useState(produtos);
-    const [reset, setReset] = useState(AllCat)
-    const [search, getSearch] = useState('')
-    const [price, setPrice] = useState(AllCat2)
+    const carrinhoDadoNew = produtos;
+    const reset = AllCat;
+    const [search, getSearch] = useState('');
+    const price = AllCat2;
     const title = document.title = 'loja de conveniencia'
 
     function carrinho(e){
@@ -82,7 +82,7 @@ export default function Feed(){
         <Navigation>
           <CampoTexto value={search} onChange={(e)=> {getSearch(e.target.value)} } type="text"
                  className="busca"
-                 placeholder="Buscar postagem por nome de usuário"
+                 placeholder="Buscar um produto por nome"
                  />
           </Navigation>
         <Content>
@@ -118,7 +118,7 @@ export default function Feed(){
                     return(
                         <Card key={e.id}>
                             <img src={e.img}/>
-                            <span>{e.nome}</span>
+                            <div><span>{e.nome}</span></div>
                             <span>R$ {e.preço}</span>
                             <span>{e.disponibilidade}</span>
                             <br/>
