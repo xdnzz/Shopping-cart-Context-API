@@ -1,5 +1,5 @@
 
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import produtos from '../JSON/api';
 import './estilo.css';
 import {
@@ -14,13 +14,13 @@ CardsContent
 
 
 
-const  AllCat = ['Limpar filtros', ...new Set(produtos.map(item => item.disponibilidade))];
+// const  AllCat = ['Limpar filtros', ...new Set(produtos.map(item => item.disponibilidade))];
 const  AllCat2 = ['Limpar filtros', ...new Set(produtos.map(item => item.preço))];
 
 export default function Feed(){
     const [carrinhoDado, setCarrinhoDado] = useState(produtos);
     const carrinhoDadoNew = produtos;
-    const reset = AllCat;
+    // const reset = AllCat;
     const [search, getSearch] = useState('');
     const price = AllCat2;
     const title = document.title = 'loja de conveniencia'
@@ -30,7 +30,7 @@ export default function Feed(){
         
         const myList = localStorage.getItem('produtos'); //produtos estarão em formato de string
         let pinnedProducts = JSON.parse(myList) || [];
-        const hasProduct = pinnedProducts.some((product)=>product.id == carrinhoDado.id);
+        const hasProduct = pinnedProducts.some((product)=>product.id === carrinhoDado.id);
 
         if(hasProduct){
             alert('Voce já possui esse item no seu carrinho');
@@ -78,57 +78,54 @@ export default function Feed(){
 
 
     return(
-    <MainContent>
-        <Navigation>
-          <CampoTexto value={search} onChange={(e)=> {getSearch(e.target.value)} } type="text"
-                 className="busca"
-                 placeholder="Buscar um produto por nome"
-                 />
-          </Navigation>
-        <Content>
-          
-     <Filters>   
-            {price.map((preço)=>{
-            return( 
-            <div>
-            <input 
-            onClick={()=>filter(preço)}
-            type="checkbox" id="scales" name="scales"
-            />
+<MainContent>
+    <Navigation>
+        <CampoTexto value={search} onChange={(e)=> {getSearch(e.target.value)} } type="text"
+            className="busca"
+            placeholder="Buscar um produto por nome"
+        />
+    </Navigation>
+    <Content>
 
-            <label for="scales">{preço}</label>
-            </div>
-            )
-            
+    <Filters>   
+        {price.map((preço)=>{
+        return( 
+        <div>
+        <input 
+        onClick={()=>filter(preço)}
+        type="checkbox" id="scales" name="scales"
+        />
+
+        <label for="scales">{preço}</label>
+        </div>
+        )
+
         })}
-       
-        </Filters>
-          
-       
-            <CardsContent>
-                
-                {carrinhoDado.filter((busca)=>{
-                    if(search === ""){
-                        return busca
-                    } else if(
-                        busca.nome.toLowerCase().includes(search.toLowerCase())) {
-                            return busca
-                        }
-                }).map((e)=>{
-                    return(
-                        <Card key={e.id}>
-                            <img src={e.img}/>
-                            <div><span>{e.nome}</span></div>
-                            <span>R$ {e.preço}</span>
-                            <span>{e.disponibilidade}</span>
-                            <br/>
-                            <button onClick={ ()=>carrinho(e) }>Adicionar ao carrinho</button>
-                        </Card>
-                    )
-                })}
-            </CardsContent>
-            </Content>
-            </MainContent>
+
+    </Filters>
+    <CardsContent>  
+    {carrinhoDado.filter((busca)=>{
+        if(search === ""){
+            return busca
+        } else if(
+            busca.nome.toLowerCase().includes(search.toLowerCase())) {
+                return busca
+            }
+    }).map((e)=>{
+        return(
+            <Card key={e.id}>
+                <img src={e.img} alt={e.nome}/>
+                <div><span>{e.nome}</span></div>
+                <span>R$ {e.preço}</span>
+                <span>{e.disponibilidade}</span>
+                <br/>
+                <button onClick={()=>carrinho(e)}>Adicionar ao carrinho</button>
+            </Card>
+        )
+    })}
+    </CardsContent>
+    </Content>
+</MainContent>
     )
 
 }
