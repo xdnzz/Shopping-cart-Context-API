@@ -114,6 +114,7 @@ export default function Feed(){
     }).map((e)=>{
         return(
             <Card key={e.id}>
+                <></>
                 <img src={e.img} alt={e.nome}/>
                 <div><span>{e.nome}</span></div>
                 <span>R$ {e.preço}</span>
